@@ -1,0 +1,510 @@
+# ===============================================================================================
+# The following shows the last analyze fail log message.
+# ===============================================================================================
+
+----------------------------------------------------
+- Caught exception:
+----------------------------------------------------
+For 'Map', the length of tuples must be the same. 
+The length of the 3th element in Map is 48, but the length of the 4th element in Map is 2.
+
+----------------------------------------------------
+- C++ Call Stack: (For framework developers)
+----------------------------------------------------
+mindspore\ccsrc\frontend\operator\composite\map.cc:183 mindspore::prim::Map::FullMakeTuple
+
+----------------------------------------------------
+- The Traceback of Net Construct Code:
+----------------------------------------------------
+# 0 In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:209
+        if self.is_group_lr:
+# 1 In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:213
+            success = self.map_reverse(F.partial(_ada_grad_opt, self.opt, lr), params, accum,
+            ^
+# 2 In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:213
+            success = self.map_reverse(F.partial(_ada_grad_opt, self.opt, lr), params, accum,
+                      ^
+
+# ===============================================================================================
+# The following shows the IR when the function graphs evaluation fails to help locate the problem.
+# You can search the last ------------------------> to the node which is evaluated failure.
+# Refer to https://www.mindspore.cn/search?inputValue=analyze_fail.ir to get more instructions.
+# ===============================================================================================
+
+# IR entry: @mindspore_nn_optim_ada_grad_Adagrad_construct_1
+# Total subgraphs: 17
+
+# Attrs:
+skip_auto_parallel_compile : 1
+
+# Total params: 99
+# Params:
+%para1_grads : <null>
+%para2_global_step : <Ref[Tensor[Int32]], (1), ref_key=:global_step>  :  has_default
+%para3_ent_embeddings.embedding_table : <Ref[Tensor[Float32]], (47766, 400), ref_key=:ent_embeddings.embedding_table>  :  has_default
+%para4_rel_embeddings.embedding_table : <Ref[Tensor[Float32]], (708, 400), ref_key=:rel_embeddings.embedding_table>  :  has_default
+%para5_conv_layer_2.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 3), ref_key=:conv_layer_2.weight>  :  has_default
+%para6_conv_layer_2.bias : <Ref[Tensor[Float32]], (8), ref_key=:conv_layer_2.bias>  :  has_default
+%para7_conv_layer_3.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 4), ref_key=:conv_layer_3.weight>  :  has_default
+%para8_conv_layer_3.bias : <Ref[Tensor[Float32]], (8), ref_key=:conv_layer_3.bias>  :  has_default
+%para9_conv_layer_4.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 5), ref_key=:conv_layer_4.weight>  :  has_default
+%para10_conv_layer_4.bias : <Ref[Tensor[Float32]], (8), ref_key=:conv_layer_4.bias>  :  has_default
+%para11_conv_layer_5.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 6), ref_key=:conv_layer_5.weight>  :  has_default
+%para12_conv_layer_5.bias : <Ref[Tensor[Float32]], (8), ref_key=:conv_layer_5.bias>  :  has_default
+%para13_conv_layer_6.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 7), ref_key=:conv_layer_6.weight>  :  has_default
+%para14_conv_layer_6.bias : <Ref[Tensor[Float32]], (8), ref_key=:conv_layer_6.bias>  :  has_default
+%para15_conv_layer_7.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 8), ref_key=:conv_layer_7.weight>  :  has_default
+%para16_conv_layer_7.bias : <Ref[Tensor[Float32]], (8), ref_key=:conv_layer_7.bias>  :  has_default
+%para17_conv_layer_8.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 9), ref_key=:conv_layer_8.weight>  :  has_default
+%para18_conv_layer_8.bias : <Ref[Tensor[Float32]], (8), ref_key=:conv_layer_8.bias>  :  has_default
+%para19_conv_layer_9.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 10), ref_key=:conv_layer_9.weight>  :  has_default
+%para20_conv_layer_9.bias : <Ref[Tensor[Float32]], (8), ref_key=:conv_layer_9.bias>  :  has_default
+%para21_fc_pos.weight : <Ref[Tensor[Float32]], (9, 9), ref_key=:fc_pos.weight>  :  has_default
+%para22_fc_pos.bias : <Ref[Tensor[Float32]], (9), ref_key=:fc_pos.bias>  :  has_default
+%para23_fc_rel_2.weight : <Ref[Tensor[Float32]], (3, 400), ref_key=:fc_rel_2.weight>  :  has_default
+%para24_fc_rel_2.bias : <Ref[Tensor[Float32]], (3), ref_key=:fc_rel_2.bias>  :  has_default
+%para25_fc_layer.weight : <Ref[Tensor[Float32]], (1, 1600), ref_key=:fc_layer.weight>  :  has_default
+%para26_fc_layer.bias : <Ref[Tensor[Float32]], (1), ref_key=:fc_layer.bias>  :  has_default
+%para27_fc_2.weight : <Ref[Tensor[Float32]], (1600, 1200), ref_key=:fc_2.weight>  :  has_default
+%para28_fc_2.bias : <Ref[Tensor[Float32]], (1600), ref_key=:fc_2.bias>  :  has_default
+%para29_fc_3.weight : <Ref[Tensor[Float32]], (1600, 1800), ref_key=:fc_3.weight>  :  has_default
+%para30_fc_3.bias : <Ref[Tensor[Float32]], (1600), ref_key=:fc_3.bias>  :  has_default
+%para31_fc_4.weight : <Ref[Tensor[Float32]], (1600, 2400), ref_key=:fc_4.weight>  :  has_default
+%para32_fc_4.bias : <Ref[Tensor[Float32]], (1600), ref_key=:fc_4.bias>  :  has_default
+%para33_fc_5.weight : <Ref[Tensor[Float32]], (1600, 3000), ref_key=:fc_5.weight>  :  has_default
+%para34_fc_5.bias : <Ref[Tensor[Float32]], (1600), ref_key=:fc_5.bias>  :  has_default
+%para35_fc_6.weight : <Ref[Tensor[Float32]], (1600, 3600), ref_key=:fc_6.weight>  :  has_default
+%para36_fc_6.bias : <Ref[Tensor[Float32]], (1600), ref_key=:fc_6.bias>  :  has_default
+%para37_fc_7.weight : <Ref[Tensor[Float32]], (1600, 4200), ref_key=:fc_7.weight>  :  has_default
+%para38_fc_7.bias : <Ref[Tensor[Float32]], (1600), ref_key=:fc_7.bias>  :  has_default
+%para39_fc_8.weight : <Ref[Tensor[Float32]], (1600, 4800), ref_key=:fc_8.weight>  :  has_default
+%para40_fc_8.bias : <Ref[Tensor[Float32]], (1600), ref_key=:fc_8.bias>  :  has_default
+%para41_fc_9.weight : <Ref[Tensor[Float32]], (1600, 5400), ref_key=:fc_9.weight>  :  has_default
+%para42_fc_9.bias : <Ref[Tensor[Float32]], (1600), ref_key=:fc_9.bias>  :  has_default
+%para43_bn1.bn2d.gamma : <Ref[Tensor[Float32]], (1), ref_key=:bn1.bn2d.gamma>  :  has_default
+%para44_bn1.bn2d.beta : <Ref[Tensor[Float32]], (1), ref_key=:bn1.bn2d.beta>  :  has_default
+%para45_bn2.bn2d.gamma : <Ref[Tensor[Float32]], (4), ref_key=:bn2.bn2d.gamma>  :  has_default
+%para46_bn2.bn2d.beta : <Ref[Tensor[Float32]], (4), ref_key=:bn2.bn2d.beta>  :  has_default
+%para47_bn3.gamma : <Ref[Tensor[Float32]], (1), ref_key=:bn3.gamma>  :  has_default
+%para48_bn3.beta : <Ref[Tensor[Float32]], (1), ref_key=:bn3.beta>  :  has_default
+%para49_bn4.gamma : <Ref[Tensor[Float32]], (1600), ref_key=:bn4.gamma>  :  has_default
+%para50_bn4.beta : <Ref[Tensor[Float32]], (1600), ref_key=:bn4.beta>  :  has_default
+%para51_accum.ent_embeddings.embedding_table : <Ref[Tensor[Float32]], (47766, 400), ref_key=:accum.ent_embeddings.embedding_table>  :  has_default
+%para52_accum.rel_embeddings.embedding_table : <Ref[Tensor[Float32]], (708, 400), ref_key=:accum.rel_embeddings.embedding_table>  :  has_default
+%para53_accum.conv_layer_2.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 3), ref_key=:accum.conv_layer_2.weight>  :  has_default
+%para54_accum.conv_layer_2.bias : <Ref[Tensor[Float32]], (8), ref_key=:accum.conv_layer_2.bias>  :  has_default
+%para55_accum.conv_layer_3.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 4), ref_key=:accum.conv_layer_3.weight>  :  has_default
+%para56_accum.conv_layer_3.bias : <Ref[Tensor[Float32]], (8), ref_key=:accum.conv_layer_3.bias>  :  has_default
+%para57_accum.conv_layer_4.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 5), ref_key=:accum.conv_layer_4.weight>  :  has_default
+%para58_accum.conv_layer_4.bias : <Ref[Tensor[Float32]], (8), ref_key=:accum.conv_layer_4.bias>  :  has_default
+%para59_accum.conv_layer_5.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 6), ref_key=:accum.conv_layer_5.weight>  :  has_default
+%para60_accum.conv_layer_5.bias : <Ref[Tensor[Float32]], (8), ref_key=:accum.conv_layer_5.bias>  :  has_default
+%para61_accum.conv_layer_6.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 7), ref_key=:accum.conv_layer_6.weight>  :  has_default
+%para62_accum.conv_layer_6.bias : <Ref[Tensor[Float32]], (8), ref_key=:accum.conv_layer_6.bias>  :  has_default
+%para63_accum.conv_layer_7.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 8), ref_key=:accum.conv_layer_7.weight>  :  has_default
+%para64_accum.conv_layer_7.bias : <Ref[Tensor[Float32]], (8), ref_key=:accum.conv_layer_7.bias>  :  has_default
+%para65_accum.conv_layer_8.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 9), ref_key=:accum.conv_layer_8.weight>  :  has_default
+%para66_accum.conv_layer_8.bias : <Ref[Tensor[Float32]], (8), ref_key=:accum.conv_layer_8.bias>  :  has_default
+%para67_accum.conv_layer_9.weight : <Ref[Tensor[Float32]], (8, 1, 1, 1, 10), ref_key=:accum.conv_layer_9.weight>  :  has_default
+%para68_accum.conv_layer_9.bias : <Ref[Tensor[Float32]], (8), ref_key=:accum.conv_layer_9.bias>  :  has_default
+%para69_accum.fc_pos.weight : <Ref[Tensor[Float32]], (9, 9), ref_key=:accum.fc_pos.weight>  :  has_default
+%para70_accum.fc_pos.bias : <Ref[Tensor[Float32]], (9), ref_key=:accum.fc_pos.bias>  :  has_default
+%para71_accum.fc_rel_2.weight : <Ref[Tensor[Float32]], (3, 400), ref_key=:accum.fc_rel_2.weight>  :  has_default
+%para72_accum.fc_rel_2.bias : <Ref[Tensor[Float32]], (3), ref_key=:accum.fc_rel_2.bias>  :  has_default
+%para73_accum.fc_layer.weight : <Ref[Tensor[Float32]], (1, 1600), ref_key=:accum.fc_layer.weight>  :  has_default
+%para74_accum.fc_layer.bias : <Ref[Tensor[Float32]], (1), ref_key=:accum.fc_layer.bias>  :  has_default
+%para75_accum.fc_2.weight : <Ref[Tensor[Float32]], (1600, 1200), ref_key=:accum.fc_2.weight>  :  has_default
+%para76_accum.fc_2.bias : <Ref[Tensor[Float32]], (1600), ref_key=:accum.fc_2.bias>  :  has_default
+%para77_accum.fc_3.weight : <Ref[Tensor[Float32]], (1600, 1800), ref_key=:accum.fc_3.weight>  :  has_default
+%para78_accum.fc_3.bias : <Ref[Tensor[Float32]], (1600), ref_key=:accum.fc_3.bias>  :  has_default
+%para79_accum.fc_4.weight : <Ref[Tensor[Float32]], (1600, 2400), ref_key=:accum.fc_4.weight>  :  has_default
+%para80_accum.fc_4.bias : <Ref[Tensor[Float32]], (1600), ref_key=:accum.fc_4.bias>  :  has_default
+%para81_accum.fc_5.weight : <Ref[Tensor[Float32]], (1600, 3000), ref_key=:accum.fc_5.weight>  :  has_default
+%para82_accum.fc_5.bias : <Ref[Tensor[Float32]], (1600), ref_key=:accum.fc_5.bias>  :  has_default
+%para83_accum.fc_6.weight : <Ref[Tensor[Float32]], (1600, 3600), ref_key=:accum.fc_6.weight>  :  has_default
+%para84_accum.fc_6.bias : <Ref[Tensor[Float32]], (1600), ref_key=:accum.fc_6.bias>  :  has_default
+%para85_accum.fc_7.weight : <Ref[Tensor[Float32]], (1600, 4200), ref_key=:accum.fc_7.weight>  :  has_default
+%para86_accum.fc_7.bias : <Ref[Tensor[Float32]], (1600), ref_key=:accum.fc_7.bias>  :  has_default
+%para87_accum.fc_8.weight : <Ref[Tensor[Float32]], (1600, 4800), ref_key=:accum.fc_8.weight>  :  has_default
+%para88_accum.fc_8.bias : <Ref[Tensor[Float32]], (1600), ref_key=:accum.fc_8.bias>  :  has_default
+%para89_accum.fc_9.weight : <Ref[Tensor[Float32]], (1600, 5400), ref_key=:accum.fc_9.weight>  :  has_default
+%para90_accum.fc_9.bias : <Ref[Tensor[Float32]], (1600), ref_key=:accum.fc_9.bias>  :  has_default
+%para91_accum.bn1.bn2d.gamma : <Ref[Tensor[Float32]], (1), ref_key=:accum.bn1.bn2d.gamma>  :  has_default
+%para92_accum.bn1.bn2d.beta : <Ref[Tensor[Float32]], (1), ref_key=:accum.bn1.bn2d.beta>  :  has_default
+%para93_accum.bn2.bn2d.gamma : <Ref[Tensor[Float32]], (4), ref_key=:accum.bn2.bn2d.gamma>  :  has_default
+%para94_accum.bn2.bn2d.beta : <Ref[Tensor[Float32]], (4), ref_key=:accum.bn2.bn2d.beta>  :  has_default
+%para95_accum.bn3.gamma : <Ref[Tensor[Float32]], (1), ref_key=:accum.bn3.gamma>  :  has_default
+%para96_accum.bn3.beta : <Ref[Tensor[Float32]], (1), ref_key=:accum.bn3.beta>  :  has_default
+%para97_accum.bn4.gamma : <Ref[Tensor[Float32]], (1600), ref_key=:accum.bn4.gamma>  :  has_default
+%para98_accum.bn4.beta : <Ref[Tensor[Float32]], (1600), ref_key=:accum.bn4.beta>  :  has_default
+%para99_learning_rate : <Ref[Tensor[Float32]], (), ref_key=:learning_rate>  :  has_default
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: mindspore_nn_optim_ada_grad_Adagrad_construct_1 : 0000029F00984060
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:200/    def construct(self, grads):/
+subgraph @mindspore_nn_optim_ada_grad_Adagrad_construct_1(%para1_grads, %para2_global_step, %para3_ent_embeddings.embedding_table, %para4_rel_embeddings.embedding_table, %para5_conv_layer_2.weight, %para6_conv_layer_2.bias, %para7_conv_layer_3.weight, %para8_conv_layer_3.bias, %para9_conv_layer_4.weight, %para10_conv_layer_4.bias, %para11_conv_layer_5.weight, %para12_conv_layer_5.bias, %para13_conv_layer_6.weight, %para14_conv_layer_6.bias, %para15_conv_layer_7.weight, %para16_conv_layer_7.bias, %para17_conv_layer_8.weight, %para18_conv_layer_8.bias, %para19_conv_layer_9.weight, %para20_conv_layer_9.bias, %para21_fc_pos.weight, %para22_fc_pos.bias, %para23_fc_rel_2.weight, %para24_fc_rel_2.bias, %para25_fc_layer.weight, %para26_fc_layer.bias, %para27_fc_2.weight, %para28_fc_2.bias, %para29_fc_3.weight, %para30_fc_3.bias, %para31_fc_4.weight, %para32_fc_4.bias, %para33_fc_5.weight, %para34_fc_5.bias, %para35_fc_6.weight, %para36_fc_6.bias, %para37_fc_7.weight, %para38_fc_7.bias, %para39_fc_8.weight, %para40_fc_8.bias, %para41_fc_9.weight, %para42_fc_9.bias, %para43_bn1.bn2d.gamma, %para44_bn1.bn2d.beta, %para45_bn2.bn2d.gamma, %para46_bn2.bn2d.beta, %para47_bn3.gamma, %para48_bn3.beta, %para49_bn4.gamma, %para50_bn4.beta, %para51_accum.ent_embeddings.embedding_table, %para52_accum.rel_embeddings.embedding_table, %para53_accum.conv_layer_2.weight, %para54_accum.conv_layer_2.bias, %para55_accum.conv_layer_3.weight, %para56_accum.conv_layer_3.bias, %para57_accum.conv_layer_4.weight, %para58_accum.conv_layer_4.bias, %para59_accum.conv_layer_5.weight, %para60_accum.conv_layer_5.bias, %para61_accum.conv_layer_6.weight, %para62_accum.conv_layer_6.bias, %para63_accum.conv_layer_7.weight, %para64_accum.conv_layer_7.bias, %para65_accum.conv_layer_8.weight, %para66_accum.conv_layer_8.bias, %para67_accum.conv_layer_9.weight, %para68_accum.conv_layer_9.bias, %para69_accum.fc_pos.weight, %para70_accum.fc_pos.bias, %para71_accum.fc_rel_2.weight, %para72_accum.fc_rel_2.bias, %para73_accum.fc_layer.weight, %para74_accum.fc_layer.bias, %para75_accum.fc_2.weight, %para76_accum.fc_2.bias, %para77_accum.fc_3.weight, %para78_accum.fc_3.bias, %para79_accum.fc_4.weight, %para80_accum.fc_4.bias, %para81_accum.fc_5.weight, %para82_accum.fc_5.bias, %para83_accum.fc_6.weight, %para84_accum.fc_6.bias, %para85_accum.fc_7.weight, %para86_accum.fc_7.bias, %para87_accum.fc_8.weight, %para88_accum.fc_8.bias, %para89_accum.fc_9.weight, %para90_accum.fc_9.bias, %para91_accum.bn1.bn2d.gamma, %para92_accum.bn1.bn2d.beta, %para93_accum.bn2.bn2d.gamma, %para94_accum.bn2.bn2d.beta, %para95_accum.bn3.gamma, %para96_accum.bn3.beta, %para97_accum.bn4.gamma, %para98_accum.bn4.beta, %para99_learning_rate) {
+  %1(CNode_5) = S_Prim_AssignAdd[input_names: ["ref", "value"], output_names: ["ref"], side_effect_mem: Bool(1)](%para2_global_step, Tensor(shape=[1], dtype=Int32, value=[1]))
+      : (<Ref[Tensor[Int32]], (1)>, <Tensor[Int32], (1)>) -> (<Tensor[Int32], (1)>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:208/        self.assignadd(self.global_step, self.global_step_increase_tensor)/
+  %2(CNode_6) = StopGradient(%1)
+      : (<Tensor[Int32], (1)>) -> (<Tensor[Int32], (1)>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:199/    @jit/
+
+#------------------------> 0
+  %3(CNode_7) = call @mindspore_nn_optim_ada_grad_Adagrad_construct_3()
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:209/        if self.is_group_lr:/
+  %4(CNode_8) = Depend[side_effect_propagate: I64(1)](%3, %2)
+      : (<null>, <Tensor[Int32], (1)>) -> (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:209/        if self.is_group_lr:/
+  Return(%4)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:209/        if self.is_group_lr:/
+}
+# Order:
+#   1: @mindspore_nn_optim_ada_grad_Adagrad_construct_1:grads{[0]: ValueNode<FuncGraph> flatten_gradients_9, [1]: param_grads}
+#   2: @mindspore_nn_optim_ada_grad_Adagrad_construct_1:grads{[0]: ValueNode<FuncGraph> decay_weight_10, [1]: grads}
+#   3: @mindspore_nn_optim_ada_grad_Adagrad_construct_1:grads{[0]: ValueNode<FuncGraph> gradients_centralization_11, [1]: grads}
+#   4: @mindspore_nn_optim_ada_grad_Adagrad_construct_1:grads{[0]: ValueNode<FuncGraph> scale_grad_12, [1]: grads}
+#   5: @mindspore_nn_optim_ada_grad_Adagrad_construct_1:lr{[0]: ValueNode<FuncGraph> get_lr_13}
+#   6: @mindspore_nn_optim_ada_grad_Adagrad_construct_1:CNode_5{[0]: ValueNode<DoSignaturePrimitive> S_Prim_AssignAdd, [1]: param_global_step, [2]: ValueNode<Tensor> Tensor(shape=[1], dtype=Int32, value=[1])}
+#   7: @mindspore_nn_optim_ada_grad_Adagrad_construct_1:CNode_7{[0]: ValueNode<FuncGraph> mindspore_nn_optim_ada_grad_Adagrad_construct_3}
+#   8: @mindspore_nn_optim_ada_grad_Adagrad_construct_1:CNode_14{[0]: ValueNode<Primitive> Return, [1]: CNode_8}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: mindspore_nn_optim_ada_grad_Adagrad_construct_3 : 0000029F00989010
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:200/    def construct(self, grads):/
+subgraph @mindspore_nn_optim_ada_grad_Adagrad_construct_3 parent: [subgraph @mindspore_nn_optim_ada_grad_Adagrad_construct_1]() {
+
+#------------------------> 1
+  %1(CNode_15) = call @mindspore_nn_optim_ada_grad_Adagrad_construct_4()
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:213/            success = self.map_reverse(F.partial(_ada_grad_opt, self.opt, lr), params, accum,/
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:213/            success = self.map_reverse(F.partial(_ada_grad_opt, self.opt, lr), params, accum,/
+}
+# Order:
+#   1: @mindspore_nn_optim_ada_grad_Adagrad_construct_3:CNode_16{[0]: ValueNode<DoSignaturePrimitive> S_Prim_Partial, [1]: ValueNode<DoSignaturePrimitive> S_Prim_ada_grad_opt, [2]: ValueNode<DoSignaturePrimitive> S_Prim_ApplyAdagrad, [3]: lr}
+#   2: @mindspore_nn_optim_ada_grad_Adagrad_construct_3:success{[0]: ValueNode<DoSignaturePrimitive> S_Prim_map, [1]: CNode_16, [2]: CNode_17, [3]: CNode_18, [4]: grads}
+#   3: @mindspore_nn_optim_ada_grad_Adagrad_construct_3:CNode_15{[0]: ValueNode<FuncGraph> mindspore_nn_optim_ada_grad_Adagrad_construct_4}
+#   4: @mindspore_nn_optim_ada_grad_Adagrad_construct_3:CNode_19{[0]: ValueNode<Primitive> Return, [1]: CNode_15}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: mindspore_nn_optim_ada_grad_Adagrad_construct_4 : 0000029F00987580
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:200/    def construct(self, grads):/
+subgraph @mindspore_nn_optim_ada_grad_Adagrad_construct_4 parent: [subgraph @mindspore_nn_optim_ada_grad_Adagrad_construct_3]() {
+  %1(lr) = $(mindspore_nn_optim_ada_grad_Adagrad_construct_1):call @get_lr_13()
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:207/        lr = self.get_lr()/
+  %2(CNode_16) = $(mindspore_nn_optim_ada_grad_Adagrad_construct_3):S_Prim_Partial[side_effect_propagate: I64(1)](S_Prim_ada_grad_opt, S_Prim_ApplyAdagrad[update_slots: Bool(0), side_effect_mem: Bool(1)], %1)
+      : (<Func, NoShape>, <Func, NoShape>, <Ref[Tensor[Float32]], ()>) -> (<Func, NoShape>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:213/            success = self.map_reverse(F.partial(_ada_grad_opt, self.opt, lr), params, accum,/
+  %3(CNode_17) = $(mindspore_nn_optim_ada_grad_Adagrad_construct_1):MakeTuple(%para3_ent_embeddings.embedding_table, %para4_rel_embeddings.embedding_table, %para5_conv_layer_2.weight, %para6_conv_layer_2.bias, %para7_conv_layer_3.weight, %para8_conv_layer_3.bias, %para9_conv_layer_4.weight, %para10_conv_layer_4.bias, %para11_conv_layer_5.weight, %para12_conv_layer_5.bias, %para13_conv_layer_6.weight, %para14_conv_layer_6.bias, %para15_conv_layer_7.weight, %para16_conv_layer_7.bias, %para17_conv_layer_8.weight, %para18_conv_layer_8.bias, %para19_conv_layer_9.weight, %para20_conv_layer_9.bias, %para21_fc_pos.weight, %para22_fc_pos.bias, %para23_fc_rel_2.weight, %para24_fc_rel_2.bias, %para25_fc_layer.weight, %para26_fc_layer.bias, %para27_fc_2.weight, %para28_fc_2.bias, %para29_fc_3.weight, %para30_fc_3.bias, %para31_fc_4.weight, %para32_fc_4.bias, %para33_fc_5.weight, %para34_fc_5.bias, %para35_fc_6.weight, %para36_fc_6.bias, %para37_fc_7.weight, %para38_fc_7.bias, %para39_fc_8.weight, %para40_fc_8.bias, %para41_fc_9.weight, %para42_fc_9.bias, %para43_bn1.bn2d.gamma, %para44_bn1.bn2d.beta, %para45_bn2.bn2d.gamma, %para46_bn2.bn2d.beta, %para47_bn3.gamma, %para48_bn3.beta, %para49_bn4.gamma, %para50_bn4.beta)
+      : (<Ref[Tensor[Float32]], (47766, 400)>, <Ref[Tensor[Float32]], (708, 400)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 3)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 4)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 5)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 6)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 7)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 8)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 9)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 10)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (9, 9)>, <Ref[Tensor[Float32]], (9)>, <Ref[Tensor[Float32]], (3, 400)>, <Ref[Tensor[Float32]], (3)>, <Ref[Tensor[Float32]], (1, 1600)>, <Ref[Tensor[Float32]], (1)>, <Ref[Tensor[Float32]], (1600, 1200)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600, 1800)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600, 2400)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600, 3000)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600, 3600)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600, 4200)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600, 4800)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600, 5400)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1)>, <Ref[Tensor[Float32]], (1)>, <Ref[Tensor[Float32]], (4)>, <Ref[Tensor[Float32]], (4)>, <Ref[Tensor[Float32]], (1)>, <Ref[Tensor[Float32]], (1)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600)>) -> (<Tuple[Ref[Tensor[Float32]]*48], TupleShape((47766, 400), (708, 400), (8, 1, 1, 1, 3), (8), (8, 1, 1, 1, 4), (8), (8, 1, 1, 1, 5), (8), (8, 1, 1, 1, 6), (8), (8, 1, 1, 1, 7), (8), (8, 1, 1, 1, 8), (8), (8, 1, 1, 1, 9), (8), (8, 1, 1, 1, 10), (8), (9, 9), (9), (3, 400), (3), (1, 1600), (1), (1600, 1200), (1600), (1600, 1800), (1600), (1600, 2400), (1600), (1600, 3000), (1600), (1600, 3600), (1600), (1600, 4200), (1600), (1600, 4800), (1600), (1600, 5400), (1600), (1), (1), (4), (4), (1), (1), (1600), (1600))>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:201/        params = self._parameters/
+  %4(CNode_18) = $(mindspore_nn_optim_ada_grad_Adagrad_construct_1):MakeTuple(%para51_accum.ent_embeddings.embedding_table, %para52_accum.rel_embeddings.embedding_table, %para53_accum.conv_layer_2.weight, %para54_accum.conv_layer_2.bias, %para55_accum.conv_layer_3.weight, %para56_accum.conv_layer_3.bias, %para57_accum.conv_layer_4.weight, %para58_accum.conv_layer_4.bias, %para59_accum.conv_layer_5.weight, %para60_accum.conv_layer_5.bias, %para61_accum.conv_layer_6.weight, %para62_accum.conv_layer_6.bias, %para63_accum.conv_layer_7.weight, %para64_accum.conv_layer_7.bias, %para65_accum.conv_layer_8.weight, %para66_accum.conv_layer_8.bias, %para67_accum.conv_layer_9.weight, %para68_accum.conv_layer_9.bias, %para69_accum.fc_pos.weight, %para70_accum.fc_pos.bias, %para71_accum.fc_rel_2.weight, %para72_accum.fc_rel_2.bias, %para73_accum.fc_layer.weight, %para74_accum.fc_layer.bias, %para75_accum.fc_2.weight, %para76_accum.fc_2.bias, %para77_accum.fc_3.weight, %para78_accum.fc_3.bias, %para79_accum.fc_4.weight, %para80_accum.fc_4.bias, %para81_accum.fc_5.weight, %para82_accum.fc_5.bias, %para83_accum.fc_6.weight, %para84_accum.fc_6.bias, %para85_accum.fc_7.weight, %para86_accum.fc_7.bias, %para87_accum.fc_8.weight, %para88_accum.fc_8.bias, %para89_accum.fc_9.weight, %para90_accum.fc_9.bias, %para91_accum.bn1.bn2d.gamma, %para92_accum.bn1.bn2d.beta, %para93_accum.bn2.bn2d.gamma, %para94_accum.bn2.bn2d.beta, %para95_accum.bn3.gamma, %para96_accum.bn3.beta, %para97_accum.bn4.gamma, %para98_accum.bn4.beta)
+      : (<Ref[Tensor[Float32]], (47766, 400)>, <Ref[Tensor[Float32]], (708, 400)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 3)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 4)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 5)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 6)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 7)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 8)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 9)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (8, 1, 1, 1, 10)>, <Ref[Tensor[Float32]], (8)>, <Ref[Tensor[Float32]], (9, 9)>, <Ref[Tensor[Float32]], (9)>, <Ref[Tensor[Float32]], (3, 400)>, <Ref[Tensor[Float32]], (3)>, <Ref[Tensor[Float32]], (1, 1600)>, <Ref[Tensor[Float32]], (1)>, <Ref[Tensor[Float32]], (1600, 1200)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600, 1800)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600, 2400)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600, 3000)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600, 3600)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600, 4200)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600, 4800)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600, 5400)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1)>, <Ref[Tensor[Float32]], (1)>, <Ref[Tensor[Float32]], (4)>, <Ref[Tensor[Float32]], (4)>, <Ref[Tensor[Float32]], (1)>, <Ref[Tensor[Float32]], (1)>, <Ref[Tensor[Float32]], (1600)>, <Ref[Tensor[Float32]], (1600)>) -> (<Tuple[Ref[Tensor[Float32]]*48], TupleShape((47766, 400), (708, 400), (8, 1, 1, 1, 3), (8), (8, 1, 1, 1, 4), (8), (8, 1, 1, 1, 5), (8), (8, 1, 1, 1, 6), (8), (8, 1, 1, 1, 7), (8), (8, 1, 1, 1, 8), (8), (8, 1, 1, 1, 9), (8), (8, 1, 1, 1, 10), (8), (9, 9), (9), (3, 400), (3), (1, 1600), (1), (1600, 1200), (1600), (1600, 1800), (1600), (1600, 2400), (1600), (1600, 3000), (1600), (1600, 3600), (1600), (1600, 4200), (1600), (1600, 4800), (1600), (1600, 5400), (1600), (1), (1), (4), (4), (1), (1), (1600), (1600))>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:202/        accum = self.accum/
+  %5(grads) = $(mindspore_nn_optim_ada_grad_Adagrad_construct_1):call @flatten_gradients_9(%para1_grads)
+      : (<Tuple[Tensor[Int64],Tuple[Tensor[Float32]*48]], TupleShape((1408, 3), TupleShape((47766, 400), (708, 400), (8, 1, 1, 1, 3), (8), (8, 1, 1, 1, 4), (8), (8, 1, 1, 1, 5), (8), (8, 1, 1, 1, 6), (8), (8, 1, 1, 1, 7), (8), (8, 1, 1, 1, 8), (8), (8, 1, 1, 1, 9), (8), (8, 1, 1, 1, 10), (8), (9, 9), (9), (3, 400), (3), (1, 1600), (1), (1600, 1200), (1600), (1600, 1800), (1600), (1600, 2400), (1600), (1600, 3000), (1600), (1600, 3600), (1600), (1600, 4200), (1600), (1600, 4800), (1600), (1600, 5400), (1600), (1), (1), (4), (4), (1), (1), (1600), (1600)))>) -> (<Tuple[Tensor[Int64],Tuple[Tensor[Float32]*48]], TupleShape((1408, 3), TupleShape((47766, 400), (708, 400), (8, 1, 1, 1, 3), (8), (8, 1, 1, 1, 4), (8), (8, 1, 1, 1, 5), (8), (8, 1, 1, 1, 6), (8), (8, 1, 1, 1, 7), (8), (8, 1, 1, 1, 8), (8), (8, 1, 1, 1, 9), (8), (8, 1, 1, 1, 10), (8), (9, 9), (9), (3, 400), (3), (1, 1600), (1), (1600, 1200), (1600), (1600, 1800), (1600), (1600, 2400), (1600), (1600, 3000), (1600), (1600, 3600), (1600), (1600, 4200), (1600), (1600, 4800), (1600), (1600, 5400), (1600), (1), (1), (4), (4), (1), (1), (1600), (1600)))>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:203/        grads = self.flatten_gradients(grads)/
+  %6(grads) = $(mindspore_nn_optim_ada_grad_Adagrad_construct_1):call @decay_weight_10(%5)
+      : (<Tuple[Tensor[Int64],Tuple[Tensor[Float32]*48]], TupleShape((1408, 3), TupleShape((47766, 400), (708, 400), (8, 1, 1, 1, 3), (8), (8, 1, 1, 1, 4), (8), (8, 1, 1, 1, 5), (8), (8, 1, 1, 1, 6), (8), (8, 1, 1, 1, 7), (8), (8, 1, 1, 1, 8), (8), (8, 1, 1, 1, 9), (8), (8, 1, 1, 1, 10), (8), (9, 9), (9), (3, 400), (3), (1, 1600), (1), (1600, 1200), (1600), (1600, 1800), (1600), (1600, 2400), (1600), (1600, 3000), (1600), (1600, 3600), (1600), (1600, 4200), (1600), (1600, 4800), (1600), (1600, 5400), (1600), (1), (1), (4), (4), (1), (1), (1600), (1600)))>) -> (<Tuple[Tensor[Int64],Tuple[Tensor[Float32]*48]], TupleShape((1408, 3), TupleShape((47766, 400), (708, 400), (8, 1, 1, 1, 3), (8), (8, 1, 1, 1, 4), (8), (8, 1, 1, 1, 5), (8), (8, 1, 1, 1, 6), (8), (8, 1, 1, 1, 7), (8), (8, 1, 1, 1, 8), (8), (8, 1, 1, 1, 9), (8), (8, 1, 1, 1, 10), (8), (9, 9), (9), (3, 400), (3), (1, 1600), (1), (1600, 1200), (1600), (1600, 1800), (1600), (1600, 2400), (1600), (1600, 3000), (1600), (1600, 3600), (1600), (1600, 4200), (1600), (1600, 4800), (1600), (1600, 5400), (1600), (1), (1), (4), (4), (1), (1), (1600), (1600)))>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:204/        grads = self.decay_weight(grads)/
+  %7(grads) = $(mindspore_nn_optim_ada_grad_Adagrad_construct_1):call @gradients_centralization_11(%6)
+      : (<Tuple[Tensor[Int64],Tuple[Tensor[Float32]*48]], TupleShape((1408, 3), TupleShape((47766, 400), (708, 400), (8, 1, 1, 1, 3), (8), (8, 1, 1, 1, 4), (8), (8, 1, 1, 1, 5), (8), (8, 1, 1, 1, 6), (8), (8, 1, 1, 1, 7), (8), (8, 1, 1, 1, 8), (8), (8, 1, 1, 1, 9), (8), (8, 1, 1, 1, 10), (8), (9, 9), (9), (3, 400), (3), (1, 1600), (1), (1600, 1200), (1600), (1600, 1800), (1600), (1600, 2400), (1600), (1600, 3000), (1600), (1600, 3600), (1600), (1600, 4200), (1600), (1600, 4800), (1600), (1600, 5400), (1600), (1), (1), (4), (4), (1), (1), (1600), (1600)))>) -> (<Tuple[Tensor[Int64],Tuple[Tensor[Float32]*48]], TupleShape((1408, 3), TupleShape((47766, 400), (708, 400), (8, 1, 1, 1, 3), (8), (8, 1, 1, 1, 4), (8), (8, 1, 1, 1, 5), (8), (8, 1, 1, 1, 6), (8), (8, 1, 1, 1, 7), (8), (8, 1, 1, 1, 8), (8), (8, 1, 1, 1, 9), (8), (8, 1, 1, 1, 10), (8), (9, 9), (9), (3, 400), (3), (1, 1600), (1), (1600, 1200), (1600), (1600, 1800), (1600), (1600, 2400), (1600), (1600, 3000), (1600), (1600, 3600), (1600), (1600, 4200), (1600), (1600, 4800), (1600), (1600, 5400), (1600), (1), (1), (4), (4), (1), (1), (1600), (1600)))>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:205/        grads = self.gradients_centralization(grads)/
+  %8(grads) = $(mindspore_nn_optim_ada_grad_Adagrad_construct_1):call @scale_grad_12(%7)
+      : (<Tuple[Tensor[Int64],Tuple[Tensor[Float32]*48]], TupleShape((1408, 3), TupleShape((47766, 400), (708, 400), (8, 1, 1, 1, 3), (8), (8, 1, 1, 1, 4), (8), (8, 1, 1, 1, 5), (8), (8, 1, 1, 1, 6), (8), (8, 1, 1, 1, 7), (8), (8, 1, 1, 1, 8), (8), (8, 1, 1, 1, 9), (8), (8, 1, 1, 1, 10), (8), (9, 9), (9), (3, 400), (3), (1, 1600), (1), (1600, 1200), (1600), (1600, 1800), (1600), (1600, 2400), (1600), (1600, 3000), (1600), (1600, 3600), (1600), (1600, 4200), (1600), (1600, 4800), (1600), (1600, 5400), (1600), (1), (1), (4), (4), (1), (1), (1600), (1600)))>) -> (<Tuple[Tensor[Int64],Tuple[Tensor[Float32]*48]], TupleShape((1408, 3), TupleShape((47766, 400), (708, 400), (8, 1, 1, 1, 3), (8), (8, 1, 1, 1, 4), (8), (8, 1, 1, 1, 5), (8), (8, 1, 1, 1, 6), (8), (8, 1, 1, 1, 7), (8), (8, 1, 1, 1, 8), (8), (8, 1, 1, 1, 9), (8), (8, 1, 1, 1, 10), (8), (9, 9), (9), (3, 400), (3), (1, 1600), (1), (1600, 1200), (1600), (1600, 1800), (1600), (1600, 2400), (1600), (1600, 3000), (1600), (1600, 3600), (1600), (1600, 4200), (1600), (1600, 4800), (1600), (1600, 5400), (1600), (1), (1), (4), (4), (1), (1), (1600), (1600)))>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:206/        grads = self.scale_grad(grads)/
+
+#------------------------> 2
+  %9(success) = $(mindspore_nn_optim_ada_grad_Adagrad_construct_3):S_Prim_map(%2, %3, %4, %8)
+      : (<Func, NoShape>, <Tuple[Ref[Tensor[Float32]]*48], TupleShape((47766, 400), (708, 400), (8, 1, 1, 1, 3), (8), (8, 1, 1, 1, 4), (8), (8, 1, 1, 1, 5), (8), (8, 1, 1, 1, 6), (8), (8, 1, 1, 1, 7), (8), (8, 1, 1, 1, 8), (8), (8, 1, 1, 1, 9), (8), (8, 1, 1, 1, 10), (8), (9, 9), (9), (3, 400), (3), (1, 1600), (1), (1600, 1200), (1600), (1600, 1800), (1600), (1600, 2400), (1600), (1600, 3000), (1600), (1600, 3600), (1600), (1600, 4200), (1600), (1600, 4800), (1600), (1600, 5400), (1600), (1), (1), (4), (4), (1), (1), (1600), (1600))>, <Tuple[Ref[Tensor[Float32]]*48], TupleShape((47766, 400), (708, 400), (8, 1, 1, 1, 3), (8), (8, 1, 1, 1, 4), (8), (8, 1, 1, 1, 5), (8), (8, 1, 1, 1, 6), (8), (8, 1, 1, 1, 7), (8), (8, 1, 1, 1, 8), (8), (8, 1, 1, 1, 9), (8), (8, 1, 1, 1, 10), (8), (9, 9), (9), (3, 400), (3), (1, 1600), (1), (1600, 1200), (1600), (1600, 1800), (1600), (1600, 2400), (1600), (1600, 3000), (1600), (1600, 3600), (1600), (1600, 4200), (1600), (1600, 4800), (1600), (1600, 5400), (1600), (1), (1), (4), (4), (1), (1), (1600), (1600))>, <Tuple[Tensor[Int64],Tuple[Tensor[Float32]*48]], TupleShape((1408, 3), TupleShape((47766, 400), (708, 400), (8, 1, 1, 1, 3), (8), (8, 1, 1, 1, 4), (8), (8, 1, 1, 1, 5), (8), (8, 1, 1, 1, 6), (8), (8, 1, 1, 1, 7), (8), (8, 1, 1, 1, 8), (8), (8, 1, 1, 1, 9), (8), (8, 1, 1, 1, 10), (8), (9, 9), (9), (3, 400), (3), (1, 1600), (1), (1600, 1200), (1600), (1600, 1800), (1600), (1600, 2400), (1600), (1600, 3000), (1600), (1600, 3600), (1600), (1600, 4200), (1600), (1600, 4800), (1600), (1600, 5400), (1600), (1), (1), (4), (4), (1), (1), (1600), (1600)))>) -> (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:213/            success = self.map_reverse(F.partial(_ada_grad_opt, self.opt, lr), params, accum,/
+  Return(%9)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\ada_grad.py:215/        return success/
+}
+# Order:
+#   1: @mindspore_nn_optim_ada_grad_Adagrad_construct_4:CNode_20{[0]: ValueNode<Primitive> Return, [1]: success}
+
+
+# ===============================================================================================
+# The total of function graphs in evaluation stack: 3/4 (Ignored 1 internal frames).
+# ===============================================================================================
+
+
+# ===============================================================================================
+# The rest function graphs are the following:
+# ===============================================================================================
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: scale_grad_12 : 0000029F009835C0
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:471/    def scale_grad(self, gradients):/
+subgraph @scale_grad_12(%para100_gradients) {
+  %1(CNode_22) = call @scale_grad_21()
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:485/        if self.need_scale:/
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:485/        if self.need_scale:/
+}
+# Order:
+#   1: @scale_grad_12:CNode_22{[0]: ValueNode<FuncGraph> scale_grad_21}
+#   2: @scale_grad_12:CNode_23{[0]: ValueNode<Primitive> Return, [1]: CNode_22}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: get_lr_13 : 0000029F00988020
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:739/    def get_lr(self):/
+subgraph @get_lr_13 parent: [subgraph @mindspore_nn_optim_ada_grad_Adagrad_construct_1]() {
+  %1(CNode_25) = call @get_lr_24()
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:748/        if self.dynamic_lr:/
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:748/        if self.dynamic_lr:/
+}
+# Order:
+#   1: @get_lr_13:CNode_25{[0]: ValueNode<FuncGraph> get_lr_24}
+#   2: @get_lr_13:CNode_26{[0]: ValueNode<Primitive> Return, [1]: CNode_25}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: gradients_centralization_11 : 0000029F009825D0
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:452/    def gradients_centralization(self, gradients):/
+subgraph @gradients_centralization_11(%para101_gradients) {
+  %1(CNode_28) = call @gradients_centralization_27()
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:466/        if self.is_group:/
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:466/        if self.is_group:/
+}
+# Order:
+#   1: @gradients_centralization_11:CNode_28{[0]: ValueNode<FuncGraph> gradients_centralization_27}
+#   2: @gradients_centralization_11:CNode_29{[0]: ValueNode<Primitive> Return, [1]: CNode_28}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: decay_weight_10 : 0000029F00984B00
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:429/    def decay_weight(self, gradients):/
+subgraph @decay_weight_10(%para102_gradients) {
+  %1(CNode_31) = call @decay_weight_30()
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:442/        if self.exec_weight_decay:/
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:442/        if self.exec_weight_decay:/
+}
+# Order:
+#   1: @decay_weight_10:CNode_31{[0]: ValueNode<FuncGraph> decay_weight_30}
+#   2: @decay_weight_10:CNode_32{[0]: ValueNode<Primitive> Return, [1]: CNode_31}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: flatten_gradients_9 : 0000029F00983070
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:410/    def flatten_gradients(self, gradients):/
+subgraph @flatten_gradients_9(%para103_gradients) {
+  %1(CNode_34) = call @flatten_gradients_33()
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:424/        if self._use_flattened_params:/
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:424/        if self._use_flattened_params:/
+}
+# Order:
+#   1: @flatten_gradients_9:CNode_34{[0]: ValueNode<FuncGraph> flatten_gradients_33}
+#   2: @flatten_gradients_9:CNode_35{[0]: ValueNode<Primitive> Return, [1]: CNode_34}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: scale_grad_21 : 0000029F00987AD0
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:471/    def scale_grad(self, gradients):/
+subgraph @scale_grad_21 parent: [subgraph @scale_grad_12]() {
+  %1(CNode_37) = call @scale_grad_36()
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:485/        if self.need_scale:/
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:485/        if self.need_scale:/
+}
+# Order:
+#   1: @scale_grad_21:CNode_37{[0]: ValueNode<FuncGraph> scale_grad_36}
+#   2: @scale_grad_21:CNode_38{[0]: ValueNode<Primitive> Return, [1]: CNode_37}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: get_lr_24 : 0000029F0098A000
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:739/    def get_lr(self):/
+subgraph @get_lr_24 parent: [subgraph @mindspore_nn_optim_ada_grad_Adagrad_construct_1]() {
+  %1(CNode_40) = call @get_lr_39()
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:748/        if self.dynamic_lr:/
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:748/        if self.dynamic_lr:/
+}
+# Order:
+#   1: @get_lr_24:CNode_40{[0]: ValueNode<FuncGraph> get_lr_39}
+#   2: @get_lr_24:CNode_41{[0]: ValueNode<Primitive> Return, [1]: CNode_40}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: gradients_centralization_27 : 0000029F00988570
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:452/    def gradients_centralization(self, gradients):/
+subgraph @gradients_centralization_27 parent: [subgraph @gradients_centralization_11]() {
+  %1(CNode_43) = call @gradients_centralization_42()
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:466/        if self.is_group:/
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:466/        if self.is_group:/
+}
+# Order:
+#   1: @gradients_centralization_27:CNode_43{[0]: ValueNode<FuncGraph> gradients_centralization_42}
+#   2: @gradients_centralization_27:CNode_44{[0]: ValueNode<Primitive> Return, [1]: CNode_43}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: decay_weight_30 : 0000029F00985050
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:429/    def decay_weight(self, gradients):/
+subgraph @decay_weight_30 parent: [subgraph @decay_weight_10]() {
+  %1(CNode_46) = call @decay_weight_45()
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:442/        if self.exec_weight_decay:/
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:442/        if self.exec_weight_decay:/
+}
+# Order:
+#   1: @decay_weight_30:CNode_46{[0]: ValueNode<FuncGraph> decay_weight_45}
+#   2: @decay_weight_30:CNode_47{[0]: ValueNode<Primitive> Return, [1]: CNode_46}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: flatten_gradients_33 : 0000029F00982B20
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:410/    def flatten_gradients(self, gradients):/
+subgraph @flatten_gradients_33 parent: [subgraph @flatten_gradients_9]() {
+  %1(CNode_49) = call @flatten_gradients_48()
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:424/        if self._use_flattened_params:/
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:424/        if self._use_flattened_params:/
+}
+# Order:
+#   1: @flatten_gradients_33:CNode_49{[0]: ValueNode<FuncGraph> flatten_gradients_48}
+#   2: @flatten_gradients_33:CNode_50{[0]: ValueNode<Primitive> Return, [1]: CNode_49}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: scale_grad_36 : 0000029F009845B0
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:471/    def scale_grad(self, gradients):/
+subgraph @scale_grad_36 parent: [subgraph @scale_grad_12]() {
+  Return(%para100_gradients)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:488/        return gradients/
+}
+# Order:
+#   1: @scale_grad_36:CNode_51{[0]: ValueNode<Primitive> Return, [1]: param_gradients}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: get_lr_39 : 0000029F00989560
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:739/    def get_lr(self):/
+subgraph @get_lr_39 parent: [subgraph @mindspore_nn_optim_ada_grad_Adagrad_construct_1]() {
+  Return(%para99_learning_rate)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:756/        return lr/
+}
+# Order:
+#   1: @get_lr_39:CNode_52{[0]: ValueNode<Primitive> Return, [1]: param_learning_rate}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: gradients_centralization_42 : 0000029F00989AB0
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:452/    def gradients_centralization(self, gradients):/
+subgraph @gradients_centralization_42 parent: [subgraph @gradients_centralization_11]() {
+  Return(%para101_gradients)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:469/        return gradients/
+}
+# Order:
+#   1: @gradients_centralization_42:CNode_53{[0]: ValueNode<Primitive> Return, [1]: param_gradients}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: decay_weight_45 : 0000029F0098A550
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:429/    def decay_weight(self, gradients):/
+subgraph @decay_weight_45 parent: [subgraph @decay_weight_10]() {
+  Return(%para102_gradients)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:450/        return gradients/
+}
+# Order:
+#   1: @decay_weight_45:CNode_54{[0]: ValueNode<Primitive> Return, [1]: param_gradients}
+
+
+subgraph attr:
+skip_auto_parallel_compile : 1
+subgraph instance: flatten_gradients_48 : 0000029F0098AAA0
+# In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:410/    def flatten_gradients(self, gradients):/
+subgraph @flatten_gradients_48 parent: [subgraph @flatten_gradients_9]() {
+  Return(%para103_gradients)
+      : (<null>)
+      #scope: (Default)
+      # In file C:\Users\zhangheyi\anaconda3\envs\mindspore_pytorch_data\lib\site-packages\mindspore\nn\optim\optimizer.py:427/        return gradients/
+}
+# Order:
+#   1: @flatten_gradients_48:CNode_55{[0]: ValueNode<Primitive> Return, [1]: param_gradients}
+
+
